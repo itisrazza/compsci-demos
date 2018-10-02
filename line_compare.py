@@ -78,7 +78,7 @@ time_finish = timing_function()
 time_span = time_finish - time_start
 
 # Display gradient results
-print("= Gradient Function =======")
+print("= Bresenham Line Algorithm")
 print(" Time span:          {}".format(time_span))
 print(" Iterations:         {}".format(iterations))
 print(" Average lap (t/l):  {}".format(time_span / iterations))
