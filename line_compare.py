@@ -33,53 +33,34 @@ def bresenham_line_algo(x1, y1, x2, y2):
 
     return points
 
-# Variables (yay!)
-x1 = 2; y1 = 6
-x2 = 9; y2 = 4
-iterations = 1000000
+# OK... Now let's only run this if we're being called
+# from OS
+if __name__ == "__main__":
+    # Variables (yay!)
+    x1 = 2; y1 = 6
+    x2 = 9; y2 = 4
+    iterations = 100000
+    
+    # Show a nice display for user
+    print("= Function arguments ======")
+    print(" Point 1:    ({}, {})".format(x1, y1))
+    print(" Point 2:    ({}, {})".format(x2, y2))
+    print(" Iterations: {}".format(iterations))
+    print()
+    
+    # Calculate results
+    print("= Calculating =============")
+    print()
+    
+    # Define the function parameters
+    func_param = (x1, y1, x2, y2)
+    
+    # Time the different functions
+    timing_ymxc = shared.time_function(gradient_function, func_param, iterations)  
+    timing_bres = shared.time_function(bresenham_line_algo, func_param, iterations)       
 
-# Show a nice display for user
-print("= Function arguments ======")
-print(" Point 1:    ({}, {})".format(x1, y1))
-print(" Point 2:    ({}, {})".format(x2, y2))
-print(" Iterations: {}".format(iterations))
-print()
-
-# Calculate results
-print("= Calculating =============")
-print()
-
-# Use a consistent timing function
-timing_function = time.time
-
-# Gradient function
-times = []  # Laps
-time_start = timing_function()
-for i in range(iterations):
-    gradient_function(x1, y1, x2, y2)
-    times.append(timing_function())
-time_finish = timing_function()
-time_span = time_finish - time_start
-
-# Display gradient results
-print("= Gradient Function =======")
-print(" Time span:          {}".format(time_span))
-print(" Iterations:         {}".format(iterations))
-print(" Average lap (t/l):  {}".format(time_span / iterations))
-print()
-
-# Bresenham's
-times = []  # Laps
-time_start = timing_function()
-for i in range(iterations):
-    bresenham_line_algo(x1, y1, x2, y2)
-    times.append(timing_function())
-time_finish = timing_function()
-time_span = time_finish - time_start
-
-# Display gradient results
-print("= Bresenham Line Algorithm")
-print(" Time span:          {}".format(time_span))
-print(" Iterations:         {}".format(iterations))
-print(" Average lap (t/l):  {}".format(time_span / iterations))
-print()
+    # Display gradient results
+    shared.time_print("Gradient Function", timing_ymxc)
+    print()
+    shared.time_print("Bresenham Line Algo", timing_bres)
+        

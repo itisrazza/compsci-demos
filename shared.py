@@ -65,7 +65,7 @@ def time_function(function, func_args=(), iterations=iterations, timing_func=tim
     result["time"]["start"] = time_start
     result["time"]["finish"] = time_finish
     result["time"]["laps"] = times
-    result["func"] = []
+    result["func"] = {}
     result["func"]["results"] = results
     result["func"]["args"] = func_args
     result["iterations"] = iterations
@@ -73,3 +73,15 @@ def time_function(function, func_args=(), iterations=iterations, timing_func=tim
     
     # Give it to the world (or just the called)
     return result
+
+def time_print(title, timings):
+    print("= {} =".format(title))
+    print(" Time Span:   {}".format(timings["time"]["span"]))
+    print(" Iterations:  {}".format(timings["iterations"]))
+    print(" Average lap: {}".format(timings["time"]["span"] / timings["iterations"]))
+    return
+
+
+
+
+
