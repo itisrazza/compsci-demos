@@ -1,0 +1,16 @@
+= Function arguments ======
+ Point 1:    (2, 6)
+ Point 2:    (9, 4)
+ Iterations: 100000
+
+= Calculating =============
+
+= Gradient Function =
+ Time Span:   31.74683451652527
+ Iterations:  100000
+ Average lap: 0.00031746834516525267
+
+= Bresenham Line Algo =
+ Time Span:   9.844253063201904
+ Iterations:  100000
+ Average lap: 9.844253063201904e-05

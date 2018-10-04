@@ -1,0 +1,21 @@
+= Function arguments =
+ Center:     (5, 5)
+ Radius:     5
+ Iterations: 100000
+
+= Calculating =
+
+= Pythagoras' Theorem =
+ Time Span:   68.33179187774658
+ Iterations:  100000
+ Average lap: 0.0006833179187774658
+
+= Trigonometry =
+ Time Span:   2143.4566221237183
+ Iterations:  100000
+ Average lap: 0.021434566221237183
+
+= Bresenham's Midpoint Algo (8x) =
+ Time Span:   35.881136655807495
+ Iterations:  100000
+ Average lap: 0.00035881136655807497
