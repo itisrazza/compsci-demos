@@ -16,7 +16,7 @@ def trigonometry(x, y, r):
     # Return the points to caller
     return points
 
-def trigonometry(x, y, r):
+def pythagoras(x, y, r):
     points = []
     
     # I have no idea on making this more efficient.
@@ -24,7 +24,8 @@ def trigonometry(x, y, r):
     
     # Just get x for every horizontal line
     for i in range(x - r, x + r):
-        points.append((i, y + math.sqrt(math.pow(r, 2) - math.pow(i, 2))))
+        points.append((i, y + math.sqrt(abs(math.pow(r, 2) - math.pow(i, 2)))))
+        # print(math.sqrt(abs(math.pow(r, 2) - math.pow(i, 2))))
         # A reflection would also need to be drawn, but later
     
     return points
@@ -51,7 +52,6 @@ def bresenham_circle(x, y, r):
     
     # Using Bresenham's algo to get the circle
     algo_points = bresenham_midpoint(0, 0, r)
-    print("Circle center: ({}, {})".format(x, y))
     
     # Offset the original points
     for point in algo_points:
@@ -78,10 +78,35 @@ def bresenham_circle(x, y, r):
 # If this is the program to be called,
 # do the tests
 if __name__ == "__main__":
-    print("Tests tbd")
-            
-#print("Array data")
-#print_array(bresenham_midpoint(0, 0, 10))
-#    
-#print("Rendering")
-#print_array(bresenham_midpoint(40, 12, 10))
+    # Variables (yay!)
+    x = 5; y = 5; r = 5
+    iterations = 100000  
+    
+    # Show the settings to the user
+    print("= Function arguments =")
+    print(" Center:     ({}, {})".format(x, y))
+    print(" Radius:     {}".format(r))
+    print(" Iterations: {}".format(iterations))
+    print()
+    
+    # Calculate results
+    print("= Calculating =")
+    print()
+    
+    # Define the function parameters
+    func_param = (x, y, r)
+    
+    # Time the functions
+    timing_pyta = shared.time_function(pythagoras, func_param, iterations)
+    timing_trig = shared.time_function(trigonometry, func_param, iterations)
+    timing_bres = shared.time_function(bresenham_circle, func_param, iterations)
+    
+    # Display results
+    shared.time_print("Pythagoras' Theorem", timing_pyta)
+    print()
+    shared.time_print("Trigonometry", timing_trig)
+    print()
+    shared.time_print("Bresenham's Midpoint Algo (8x)", timing_bres)
+    
+    # That's it
+    
